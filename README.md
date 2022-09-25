@@ -1,5 +1,7 @@
 # Weather Forecast in Estonia
 
+[![Build](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml/badge.svg)](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml)
+
 This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data.
 
 ## Installation
@@ -39,6 +41,7 @@ The application will not re-fetch the online XML file every time a user accesses
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Vue.js](https://vuejs.org/)
 - [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
 
 ### Modelling
 
