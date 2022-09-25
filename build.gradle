@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.4'
     id 'io.spring.dependency-management' version '1.0.14.RELEASE'
     id 'java'
+    id "com.github.node-gradle.node" version "3.4.0"
 }
 
 group = 'run.chaos'
@@ -16,6 +17,32 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+node {
+    version = '16.13.2'
+    download = true
+    nodeProjectDir = file("${projectDir}/src/frontend")
+}
+
+processResources{
+    dependsOn 'copyFrontendToBuild'
+}
+
+task setUp(type: NpmTask) {
+    description = "install nodeJS packages"
+    args = ["install"]
+}
+
+task copyFrontendToBuild(type: Copy) {
+    dependsOn 'npmBuild'
+    from "$projectDir/src/frontend/dist/"
+    into "$buildDir/resources/main/static"
+}
+
+task npmBuild(type: NpmTask, dependsOn: setUp) {
+    workingDir = file("${projectDir}/src/frontend")
+    args = ["run", "build"]
 }
 
 dependencies {

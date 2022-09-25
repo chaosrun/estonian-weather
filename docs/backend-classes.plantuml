@@ -1,12 +1,13 @@
 @startuml backend-classes
 
 class Forecast {
+    id: int
     date: Date
     updatedAt: Date
 }
 
 class ForecastPeriod {
-    id: String
+    id: int
     phenomenon: String
     tempMin: int
     tempMax: int
@@ -16,7 +17,7 @@ class ForecastPeriod {
 }
 
 class Place {
-    id: String
+    id: int
     name: String
     phenomenon: String
     tempMin: int
@@ -24,7 +25,7 @@ class Place {
 }
 
 class Wind {
-    id: String
+    id: int
     name: String
     direction: String
     speedMin: int

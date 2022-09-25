@@ -13,7 +13,6 @@ The application will not re-fetch the online XML file every time a user accesses
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Vue.js](https://vuejs.org/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [Docker](https://www.docker.com/)
 
 ### Modelling
 
@@ -29,6 +28,20 @@ Below is a class diagram of the backend.
 | /api/forecast/date/{date}  | GET    | Get day and night forecast by specifying a date (can retrieve history forecasts in database) |
 | /api/forecast/night/{date} | GET    | Get night forecast by specifying a date                                                      |
 | /api/forecast/day/{date}   | GET    | Get day forecast by specifying a date                                                        |
+
+### Database
+
+The app uses a PostgreSQL database. You can create the development database with the following commands:
+
+```bash
+sudo -u postgres psql
+```
+
+```sql
+create database ootdb;
+create user oot with encrypted password 'oot';
+grant all privileges on database ootdb to oot;
+```
 
 ## License
 
