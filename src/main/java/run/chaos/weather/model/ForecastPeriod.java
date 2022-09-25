@@ -3,7 +3,7 @@ package run.chaos.weather.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "forecast_period")
@@ -37,12 +37,12 @@ public class ForecastPeriod {
     private String peipsi;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "place_id")
-    private Set<Place> places;
+    @JoinColumn(name = "forecast_period_id")
+    private List<Place> places;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "wind_id")
-    private Set<Wind> winds;
+    @JoinColumn(name = "forecast_period_id")
+    private List<Wind> winds;
 
     public int getId() {
         return id;
@@ -100,19 +100,19 @@ public class ForecastPeriod {
         this.peipsi = peipsi;
     }
 
-    public Set<Place> getPlaces() {
+    public List<Place> getPlaces() {
         return places;
     }
 
-    public void setPlaces(Set<Place> places) {
+    public void setPlaces(List<Place> places) {
         this.places = places;
     }
 
-    public Set<Wind> getWinds() {
+    public List<Wind> getWinds() {
         return winds;
     }
 
-    public void setWinds(Set<Wind> winds) {
+    public void setWinds(List<Wind> winds) {
         this.winds = winds;
     }
 

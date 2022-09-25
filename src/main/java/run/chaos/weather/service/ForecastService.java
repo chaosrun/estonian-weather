@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import run.chaos.weather.model.Forecast;
 import run.chaos.weather.model.ForecastPeriod;
+import run.chaos.weather.model.Place;
 import run.chaos.weather.repository.ForecastRepository;
 
 import java.io.File;
@@ -97,6 +98,29 @@ public class ForecastService {
         if (peipsi != null) {
             forecastPeriod.setPeipsi(peipsi.getTextContent());
         }
+        NodeList places = eRoot.getElementsByTagName("place");
+        forecastPeriod.setPlaces(getPlacesFromNodeList(places));
+        NodeList winds = eRoot.getElementsByTagName("wind");
         return forecastPeriod;
+    }
+
+    public List<Place> getPlacesFromNodeList(NodeList nodes) {
+        List<Place> places = new java.util.ArrayList<>(List.of());
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Place place = new Place();
+            Element eRoot = (Element) nodes.item(i);
+            place.setName(eRoot.getElementsByTagName("name").item(0).getTextContent());
+            place.setPhenomenon(eRoot.getElementsByTagName("phenomenon").item(0).getTextContent());
+            Node tempMin = eRoot.getElementsByTagName("tempmin").item(0);
+            if (tempMin != null) {
+                place.setTempMin(Integer.parseInt(tempMin.getTextContent()));
+            }
+            Node tempMax = eRoot.getElementsByTagName("tempmax").item(0);
+            if (tempMax != null) {
+                place.setTempMax(Integer.parseInt(tempMax.getTextContent()));
+            }
+            places.add(place);
+        }
+        return places;
     }
 }
