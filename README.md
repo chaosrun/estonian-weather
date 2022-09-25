@@ -12,6 +12,8 @@ The application will not re-fetch the online XML file every time a user accesses
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Vue.js](https://vuejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
 
 ### Modelling
 
@@ -21,12 +23,12 @@ Below is a class diagram of the backend.
 
 ### Endpoints
 
-| URI                    | METHOD | DESCRIPTION                                                                                  |
-|------------------------|--------|----------------------------------------------------------------------------------------------|
-| /forecast              | GET    | Get forecasts for next 4-days                                                                |
-| /forecast/date/{date}  | GET    | Get day and night forecast by specifying a date (can retrieve history forecasts in database) |
-| /forecast/night/{date} | GET    | Get night forecast by specifying a date                                                      |
-| /forecast/day/{date}   | GET    | Get day forecast by specifying a date                                                        |
+| URI                        | METHOD | DESCRIPTION                                                                                  |
+|----------------------------|--------|----------------------------------------------------------------------------------------------|
+| /api/forecast              | GET    | Get forecasts for next 4-days                                                                |
+| /api/forecast/date/{date}  | GET    | Get day and night forecast by specifying a date (can retrieve history forecasts in database) |
+| /api/forecast/night/{date} | GET    | Get night forecast by specifying a date                                                      |
+| /api/forecast/day/{date}   | GET    | Get day forecast by specifying a date                                                        |
 
 ## License
 
