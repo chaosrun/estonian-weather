@@ -1,6 +1,6 @@
 # Weather Forecast in Estonia
 
-[![Build](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml/badge.svg)](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml)
+[![Build](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml/badge.svg)](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml) [![Demo](https://img.shields.io/badge/Demo-web-blue)](https://weather.chaos.run)
 
 This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data.
 
@@ -11,14 +11,14 @@ This is a weather forecast web app for Estonia. It uses the [Estonian Environmen
 First, clone the repository:
 
 ```bash
-git clone git@github.com:chaosrun/estonian-weather.git
+git clone https://github.com/chaosrun/estonian-weather.git
 ```
 
 Then, enter the directory and edit the `.env` file to set environment variables:
 
 ```bash
 cd estonian-weather
-mv .env.example .env
+cp .env.example .env
 vim .env
 ```
 
