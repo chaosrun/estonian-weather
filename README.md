@@ -4,6 +4,10 @@ This is a weather forecast web app for Estonia. It uses the [Estonian Environmen
 
 ## Development
 
+### Justification
+
+The application will not re-fetch the online XML file every time a user accesses the forecast page, because frequent consumption of XML is unnecessary and increases latency. The program fetches the data from the online XML every 10 minutes and updates the data to the database.
+
 ### Tech Stack
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
