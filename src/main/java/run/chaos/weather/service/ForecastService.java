@@ -10,14 +10,17 @@ import org.xml.sax.SAXException;
 import run.chaos.weather.model.Forecast;
 import run.chaos.weather.model.ForecastPeriod;
 import run.chaos.weather.model.Place;
+import run.chaos.weather.model.Wind;
 import run.chaos.weather.repository.ForecastRepository;
 
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.zip.GZIPInputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -53,8 +56,13 @@ public class ForecastService {
     public List<Forecast> getForecastByConsumingXMLApi() throws ParserConfigurationException, IOException, SAXException {
         List<Forecast> forecasts = new java.util.ArrayList<>(List.of());
 
+        URL url = new URL("https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng");
+        URLConnection con = url.openConnection();
+        con.setRequestProperty("Accept-Encoding", "gzip");
+
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        Document doc = builder.parse(new File("src/test/resources/test.xml"));
+        Document doc = builder.parse(new GZIPInputStream(con.getInputStream()));
+
         doc.getDocumentElement().normalize();
         NodeList nodeList = doc.getElementsByTagName("forecast");
 
@@ -101,6 +109,7 @@ public class ForecastService {
         NodeList places = eRoot.getElementsByTagName("place");
         forecastPeriod.setPlaces(getPlacesFromNodeList(places));
         NodeList winds = eRoot.getElementsByTagName("wind");
+        forecastPeriod.setWinds(getWindsFromNodeList(winds));
         return forecastPeriod;
     }
 
@@ -122,5 +131,23 @@ public class ForecastService {
             places.add(place);
         }
         return places;
+    }
+
+    public List<Wind> getWindsFromNodeList(NodeList nodes) {
+        List<Wind> winds = new java.util.ArrayList<>(List.of());
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Wind wind = new Wind();
+            Element eRoot = (Element) nodes.item(i);
+            wind.setName(eRoot.getElementsByTagName("name").item(0).getTextContent());
+            wind.setDirection(eRoot.getElementsByTagName("direction").item(0).getTextContent());
+            wind.setSpeedMin(Integer.parseInt(eRoot.getElementsByTagName("speedmin").item(0).getTextContent()));
+            wind.setSpeedMax(Integer.parseInt(eRoot.getElementsByTagName("speedmax").item(0).getTextContent()));
+            Node gust = eRoot.getElementsByTagName("gust").item(0);
+            if (gust != null && !gust.getTextContent().isBlank()) {
+                wind.setGust(Integer.parseInt(gust.getTextContent()));
+            }
+            winds.add(wind);
+        }
+        return winds;
     }
 }
