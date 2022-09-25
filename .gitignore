@@ -107,6 +107,3 @@ yarn-error.log*
 
 *.env
 data/
-
-# FOR APPLICATION ------------------------
-source.xml
