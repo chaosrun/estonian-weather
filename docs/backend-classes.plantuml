@@ -1,0 +1,40 @@
+@startuml backend-classes
+
+class Forecast {
+    date: Date
+    updatedAt: Date
+}
+
+class ForecastPeriod {
+    id: String
+    phenomenon: String
+    tempMin: int
+    tempMax: int
+    text: String
+    sea: String
+    peipsi: String
+}
+
+class Place {
+    id: String
+    name: String
+    phenomenon: String
+    tempMin: int
+    tempMax: int
+}
+
+class Wind {
+    id: String
+    name: String
+    direction: String
+    speedMin: int
+    speedMax: int
+    gust: int
+}
+
+Forecast "1" - "1" ForecastPeriod : night >
+Forecast "1" - "1" ForecastPeriod : day >
+ForecastPeriod "1  " -- "n" Place : place >
+ForecastPeriod "1 " -- "n  " Wind : wind >
+
+@enduml
