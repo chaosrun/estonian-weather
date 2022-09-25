@@ -25,11 +25,11 @@ public class Forecast {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "forecast_night_id", referencedColumnName = "forecast_period_id")
     private ForecastPeriod night;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "forecast_day_id", referencedColumnName = "forecast_period_id")
     private ForecastPeriod day;
 

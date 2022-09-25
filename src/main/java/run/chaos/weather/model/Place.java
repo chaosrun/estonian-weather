@@ -27,10 +27,6 @@ public class Place {
     @Column(name = "temp_max")
     private int tempMax;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "forecast_period_id", referencedColumnName = "forecast_period_id")
-    private ForecastPeriod forecastPeriod;
-
     public int getId() {
         return id;
     }
@@ -69,14 +65,6 @@ public class Place {
 
     public void setTempMax(int tempMax) {
         this.tempMax = tempMax;
-    }
-
-    public ForecastPeriod getForecastPeriod() {
-        return forecastPeriod;
-    }
-
-    public void setForecastPeriod(ForecastPeriod forecastPeriod) {
-        this.forecastPeriod = forecastPeriod;
     }
 
 }

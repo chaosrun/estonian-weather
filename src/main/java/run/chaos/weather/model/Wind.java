@@ -32,10 +32,6 @@ public class Wind {
     @Column(name = "gust")
     private int gust;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "forecast_period_id", referencedColumnName = "forecast_period_id")
-    private ForecastPeriod forecastPeriod;
-
     public int getId() {
         return id;
     }
@@ -82,14 +78,6 @@ public class Wind {
 
     public void setGust(int gust) {
         this.gust = gust;
-    }
-
-    public ForecastPeriod getForecastPeriod() {
-        return forecastPeriod;
-    }
-
-    public void setForecastPeriod(ForecastPeriod forecastPeriod) {
-        this.forecastPeriod = forecastPeriod;
     }
 
 }

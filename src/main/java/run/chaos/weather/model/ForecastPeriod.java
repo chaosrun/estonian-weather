@@ -30,21 +30,17 @@ public class ForecastPeriod {
     @Column(name = "text")
     private String text;
 
-    @Column(name = "sea")
+    @Column(name = "sea", length = 1024)
     private String sea;
 
     @Column(name = "peipsi")
     private String peipsi;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "forecast_id")
-    private Forecast forecast;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "place_id")
     private Set<Place> places;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "wind_id")
     private Set<Wind> winds;
 
@@ -102,14 +98,6 @@ public class ForecastPeriod {
 
     public void setPeipsi(String peipsi) {
         this.peipsi = peipsi;
-    }
-
-    public Forecast getForecast() {
-        return forecast;
-    }
-
-    public void setForecast(Forecast forecast) {
-        this.forecast = forecast;
     }
 
     public Set<Place> getPlaces() {

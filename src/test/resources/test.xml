@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forecasts>
+	<forecast date="2022-09-26">
+		<night>
+			<phenomenon>Light shower</phenomenon>
+			<tempmin>-1</tempmin>
+			<tempmax>9</tempmax>
+			<text>Cloudy with clear spells. Light rain in many places. Locally fog. Variable wind 1-7 m/s. Air temperature +1..+7, under clear skies -1°C possible, on coast up to 9°C.
+
+</text>
+			<place>
+				<name>Harku</name>
+				<phenomenon>Cloudy with clear spells</phenomenon>
+				<tempmin>5</tempmin>
+			</place>
+			<place>
+				<name>Jõhvi</name>
+				<phenomenon>Light rain</phenomenon>
+				<tempmin>7</tempmin>
+			</place>
+			<place>
+				<name>Tartu</name>
+				<phenomenon>Cloudy with clear spells</phenomenon>
+				<tempmin>3</tempmin>
+			</place>
+			<place>
+				<name>Pärnu</name>
+				<phenomenon>Cloudy with clear spells</phenomenon>
+				<tempmin>7</tempmin>
+			</place>
+			<place>
+				<name>Kuressaare</name>
+				<phenomenon>Light shower</phenomenon>
+				<tempmin>9</tempmin>
+			</place>
+			<place>
+				<name>Türi</name>
+				<phenomenon>Fog</phenomenon>
+				<tempmin>2</tempmin>
+			</place>
+			<wind>
+				<name>Kuusiku</name>
+				<direction>South wind</direction>
+				<speedmin>1</speedmin>
+				<speedmax>4</speedmax>
+				<gust/>
+			</wind>
+			<wind>
+				<name>Väike-Maarja</name>
+				<direction>North wind</direction>
+				<speedmin>1</speedmin>
+				<speedmax>4</speedmax>
+				<gust/>
+			</wind>
+			<wind>
+				<name>Võrtsjärv</name>
+				<direction>Southeast wind</direction>
+				<speedmin>1</speedmin>
+				<speedmax>4</speedmax>
+				<gust/>
+			</wind>
+			<sea>Forecast for Baltic Sea valid 24 hours from 19:00 Sep 25 to 19:00 UTC Sep 26, 2022.
+
+Warnings:
+Northern Baltic: by day southeast, south increasing 12, in gusts up to 17 m/s. Wave height 1-2.5 m. 
+
+Weather summary: southeastern part of Low spreading to the Baltic Sea from Scandinavia.
+
+Northern Baltic: southerly 4-9, in gusts up to 12 m/s, by day southeast, south 6-12, in gusts up to 17 m/s. Wave height by day 1-2.5 m. Rain in many places, locally thunder possible. Visibility from good to moderate. 
+
+Western Gulf of Finland, Northern Gulf of Riga, Moonsund: variable 1-7 m/s, by morning becoming southerly 3-9 m/s, by day southeast, south 3-8, in gusts up to 12 m/s. Locally rain showers. At night locally fog possible, otherwise visibility from good to moderate.
+
+Eastern Gulf of Finland: variable 1-7 m/s. Rain. Visibility moderate. </sea>
+			<peipsi>Variable wind 1-4 m/s. Wave height up to 0.3 m. At times rain. Visibility moderate, towards morning fog possible. Air temperature 5..8°C.</peipsi>
+		</night>
+		<day>
+			<phenomenon>Cloudy with clear spells</phenomenon>
+			<tempmin>10</tempmin>
+			<tempmax>15</tempmax>
+			<text>Cloudy with clear spells. Locally light rain. In the evening the sky is clearing up.
+Easterly wind 2-8, on islands in gusts 11 m/s. Air temperature 10..15°C.</text>
+			<place>
+				<name>Harku</name>
+				<phenomenon>Variable clouds</phenomenon>
+				<tempmax>14</tempmax>
+			</place>
+			<place>
+				<name>Jõhvi</name>
+				<phenomenon>Light shower</phenomenon>
+				<tempmax>11</tempmax>
+			</place>
+			<place>
+				<name>Tartu</name>
+				<phenomenon>Cloudy with clear spells</phenomenon>
+				<tempmax>14</tempmax>
+			</place>
+			<place>
+				<name>Pärnu</name>
+				<phenomenon>Light shower</phenomenon>
+				<tempmax>14</tempmax>
+			</place>
+			<place>
+				<name>Kuressaare</name>
+				<phenomenon>Variable clouds</phenomenon>
+				<tempmax>14</tempmax>
+			</place>
+			<place>
+				<name>Türi</name>
+				<phenomenon>Cloudy with clear spells</phenomenon>
+				<tempmax>14</tempmax>
+			</place>
+			<wind>
+				<name>Kuusiku</name>
+				<direction>Southeast wind</direction>
+				<speedmin>3</speedmin>
+				<speedmax>8</speedmax>
+				<gust/>
+			</wind>
+			<wind>
+				<name>Väike-Maarja</name>
+				<direction>Southeast wind</direction>
+				<speedmin>2</speedmin>
+				<speedmax>6</speedmax>
+				<gust/>
+			</wind>
+			<wind>
+				<name>Võrtsjärv</name>
+				<direction>South wind</direction>
+				<speedmin>2</speedmin>
+				<speedmax>6</speedmax>
+				<gust/>
+			</wind>
+			<sea/>
+			<peipsi>Southeast, south wind, around evening easterly wind 2-6 m/s. Wave height up to 0.5 m. Drizzle possible. Visibility moderate or good. Air temperature 10..12°C.</peipsi>
+		</day>
+	</forecast>
+	<forecast date="2022-09-27">
+		<night>
+			<phenomenon>Variable clouds</phenomenon>
+			<tempmin>-1</tempmin>
+			<tempmax>11</tempmax>
+			<text>Slightly and partly cloudy. Mainly dry. Fog in many places. Easterly wind 2-8, on islands in gusts up to 12 m/s. Air temperature -1..+6, on coast up to 11°C.</text>
+		</night>
+		<day>
+			<phenomenon>Moderate shower</phenomenon>
+			<tempmin>11</tempmin>
+			<tempmax>15</tempmax>
+			<text>Variable clouds. Locally rain. Easterly wind 2-8, on islands in gusts 12 m/s. Air temperature 11..15°C.</text>
+		</day>
+	</forecast>
+	<forecast date="2022-09-28">
+		<night>
+			<phenomenon>Moderate shower</phenomenon>
+			<tempmin>2</tempmin>
+			<tempmax>11</tempmax>
+			<text>Variable clouds. Rain in many places. Easterly wind 2-8, on islands in gusts 11 m/s. Air temperature 2..7, on coast up to 11°C.</text>
+		</night>
+		<day>
+			<phenomenon>Moderate shower</phenomenon>
+			<tempmin>9</tempmin>
+			<tempmax>14</tempmax>
+			<text>Cloudy with clear spells. Rain in many places. East, northeast wind 5-10, on islands and coast in gusts 15 m/s. Air temperature 9..14°C.</text>
+		</day>
+	</forecast>
+	<forecast date="2022-09-29">
+		<night>
+			<phenomenon>Moderate shower</phenomenon>
+			<tempmin>3</tempmin>
+			<tempmax>11</tempmax>
+			<text>Cloudy with clear spells. Locally rain. East, northeast wind 5-10, on islands and coast in gusts 15, in the morning up to 18 m/s. Air temperature 3..8, on coast up to 11°C.</text>
+		</night>
+		<day>
+			<phenomenon>Moderate rain</phenomenon>
+			<tempmin>8</tempmin>
+			<tempmax>13</tempmax>
+			<text>Overcast, towards evening locally clear spells. Rain. Northeast, east wind 5-12, on islands and coast in gusts 15-18 m/s, towards evening decreasing southeast, south wind 4-10 m/s. Air temperature 8..13°C.</text>
+		</day>
+	</forecast>
+<script/></forecasts>
