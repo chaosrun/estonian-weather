@@ -36,7 +36,9 @@ jobs:
       - name: Remove plain jar
         run: rm build/libs/*-plain.jar
       - name: Move jar to target
-        run: mv build/libs/*.jar target/
+        run: |
+          mkdir target
+          mv build/libs/*.jar target/
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
