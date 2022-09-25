@@ -2,6 +2,32 @@
 
 This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data.
 
+## Installation
+
+### Using Docker
+
+First, clone the repository:
+
+```bash
+git clone git@github.com:chaosrun/estonian-weather.git
+```
+
+Then, enter the directory and edit the `.env` file to set environment variables:
+
+```bash
+cd estonian-weather
+mv .env.example .env
+vim .env
+```
+
+Finally, run the Docker container:
+
+```bash
+docker-compose up -d
+```
+
+The web app will be available at `http://localhost:{SERVER_PORT}`.
+
 ## Development
 
 ### Justification
