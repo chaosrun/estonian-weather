@@ -6,7 +6,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import run.chaos.weather.exception.ResourceNotFoundException;
 import run.chaos.weather.model.Forecast;
 import run.chaos.weather.model.ForecastPeriod;
 import run.chaos.weather.model.Place;
@@ -14,8 +16,11 @@ import run.chaos.weather.model.Wind;
 import run.chaos.weather.repository.ForecastRepository;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
@@ -61,7 +66,8 @@ public class ForecastService {
         con.setRequestProperty("Accept-Encoding", "gzip");
 
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        Document doc = builder.parse(new GZIPInputStream(con.getInputStream()));
+        InputStream inputStream = new GZIPInputStream(con.getInputStream());
+        Document doc = builder.parse(new InputSource(new InputStreamReader(inputStream, StandardCharsets.UTF_8)));
 
         doc.getDocumentElement().normalize();
         NodeList nodeList = doc.getElementsByTagName("forecast");
@@ -97,14 +103,14 @@ public class ForecastService {
         forecastPeriod.setPhenomenon(eRoot.getElementsByTagName("phenomenon").item(0).getTextContent());
         forecastPeriod.setTempMin(Integer.parseInt(eRoot.getElementsByTagName("tempmin").item(0).getTextContent()));
         forecastPeriod.setTempMax(Integer.parseInt(eRoot.getElementsByTagName("tempmax").item(0).getTextContent()));
-        forecastPeriod.setText(eRoot.getElementsByTagName("text").item(0).getTextContent());
+        forecastPeriod.setText(eRoot.getElementsByTagName("text").item(0).getTextContent().trim());
         Node sea = eRoot.getElementsByTagName("sea").item(0);
         if (sea != null) {
-            forecastPeriod.setSea(sea.getTextContent());
+            forecastPeriod.setSea(sea.getTextContent().trim());
         }
         Node peipsi = eRoot.getElementsByTagName("peipsi").item(0);
         if (peipsi != null) {
-            forecastPeriod.setPeipsi(peipsi.getTextContent());
+            forecastPeriod.setPeipsi(peipsi.getTextContent().trim());
         }
         NodeList places = eRoot.getElementsByTagName("place");
         forecastPeriod.setPlaces(getPlacesFromNodeList(places));
@@ -150,4 +156,23 @@ public class ForecastService {
         }
         return winds;
     }
+
+    public List<LocalDate> getForecastDates() throws ParserConfigurationException, IOException, SAXException {
+        List<Forecast> forecasts = getForecasts();
+        List<LocalDate> dates = new java.util.ArrayList<>(List.of());
+        for (Forecast forecast : forecasts) {
+            dates.add(forecast.getDate());
+        }
+        return dates;
+    }
+
+    public Forecast getForecastByDate(LocalDate date) {
+        Optional<Forecast> forecast = forecastRepository.findByDate(date);
+        if (forecast.isPresent()) {
+            return forecast.get();
+        } else {
+            throw new ResourceNotFoundException("Forecast not found for date: " + date);
+        }
+    }
+
 }

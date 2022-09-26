@@ -1,6 +1,6 @@
 # Weather Forecast in Estonia
 
-[![Build](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml/badge.svg)](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml) [![Demo](https://img.shields.io/badge/Demo-web-blue)](https://weather.chaos.run)
+[![Build](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml/badge.svg)](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml) [![Demo web](https://img.shields.io/badge/Demo-web-blue)](https://weather.chaos.run) [![Demo API](https://img.shields.io/badge/Demo-API-brightgreen)](https://weather.chaos.run/api/forecast)
 
 This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data.
 
@@ -53,7 +53,12 @@ Below is a class diagram of the backend.
 
 | URI                        | METHOD | DESCRIPTION                                                                                  |
 |----------------------------|--------|----------------------------------------------------------------------------------------------|
-| /api/forecast              | GET    | Get forecasts for next 4-days                                                                |                                               |
+| /api/forecast              | GET    | Get forecasts for next 4-days                                                                |
+| /api/forecast/refresh      | GET    | Get forecasts for next 4-days, forcing to fetch data from XML source                         |
+| /api/forecast/dates        | GET    | Get most recent available forecast dates                                                     |
+| /api/forecast/date/{date}  | GET    | Get day and night forecast by specifying a date (can retrieve history forecasts in database) |
+| /api/forecast/night/{date} | GET    | Get night forecast by specifying a date                                                      |
+| /api/forecast/day/{date}   | GET    | Get day forecast by specifying a date                                                        |                                              |
 
 ### Database
 
