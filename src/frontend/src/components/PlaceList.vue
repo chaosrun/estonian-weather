@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="places.length > 0">
     <div v-for="place in places" :key="place.id">
-      <table class="table mt-5" v-if="place">
+      <table class="table mt-5" v-if="place.name || place.phenomenon || place.tempMin || place.tempMax">
         <tr>
           <th>Name</th>
           <td>{{ place.name }}</td>
@@ -10,12 +10,12 @@
           <th>Phenomenon</th>
           <td>{{ place.phenomenon }}</td>
         </tr>
-        <tr>
-          <th scope="col" v-if="place.tempMin !== null">Temp Min</th>
+        <tr v-if="place.tempMin !== null">
+          <th>Temp Min</th>
           <td>{{ place.tempMin }}</td>
         </tr>
-        <tr>
-          <th scope="col" v-if="place.tempMax !== null">Temp Max</th>
+        <tr v-if="place.tempMax !== null">
+          <th>Temp Max</th>
           <td>{{ place.tempMax }}</td>
         </tr>
       </table>

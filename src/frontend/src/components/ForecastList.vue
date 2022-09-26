@@ -13,27 +13,27 @@
           <td>{{ forecast.date }} Night</td>
         </tr>
         <tr>
-          <th scope="col">Phenomenon</th>
+          <th>Phenomenon</th>
           <td>{{ forecast.night.phenomenon }}</td>
         </tr>
         <tr>
-          <th scope="col">Temp Min</th>
+          <th>Temp Min</th>
           <td>{{ forecast.night.tempMin }}</td>
         </tr>
         <tr>
-          <th scope="col">Temp Max</th>
+          <th>Temp Max</th>
           <td>{{ forecast.night.tempMax }}</td>
         </tr>
         <tr>
-          <th scope="col">Text</th>
+          <th>Text</th>
           <td>{{ forecast.night.text }}</td>
         </tr>
         <tr v-if="forecast.night.sea">
-          <th scope="col">Sea</th>
+          <th>Sea</th>
           <td>{{ forecast.night.sea }}</td>
         </tr>
         <tr v-if="forecast.night.peipsi">
-          <th scope="col" v-if="forecast.night.peipsi">Peipsi</th>
+          <th>Peipsi</th>
           <td>{{ forecast.night.peipsi }}</td>
         </tr>
       </table>
@@ -46,32 +46,32 @@
           <td>{{ forecast.date }} Day</td>
         </tr>
         <tr>
-          <th scope="col">Phenomenon</th>
+          <th>Phenomenon</th>
           <td>{{ forecast.day.phenomenon }}</td>
         </tr>
         <tr>
-          <th scope="col">Temp Min</th>
+          <th>Temp Min</th>
           <td>{{ forecast.day.tempMin }}</td>
         </tr>
         <tr>
-          <th scope="col">Temp Max</th>
+          <th>Temp Max</th>
           <td>{{ forecast.day.tempMax }}</td>
         </tr>
         <tr>
-          <th scope="col">Text</th>
+          <th>Text</th>
           <td>{{ forecast.day.text }}</td>
         </tr>
         <tr v-if="forecast.day.sea">
-          <th scope="col">Sea</th>
+          <th>Sea</th>
           <td>{{ forecast.day.sea }}</td>
         </tr>
         <tr v-if="forecast.day.peipsi">
-          <th scope="col" v-if="forecast.day.peipsi">Peipsi</th>
+          <th>Peipsi</th>
           <td>{{ forecast.day.peipsi }}</td>
         </tr>
       </table>
 
-      <PlaceList places='{{ forecast.day.places }}' />
+      <PlaceList :places="forecast.day.places" />
       
     </div>
   </div>
