@@ -23,46 +23,52 @@ export default {
 </script>
 
 <style>
-body {
-  font-family: "Roboto Mono", monospace;
-  color: black;
-  background: transparent !important;
-}
+  body {
+    font-family: "Roboto Mono", monospace;
+    color: black;
+    background: transparent !important;
+  }
 
-.it-lists {
-  max-width: 800px;
-  margin: 50px auto auto;
-}
+  .it-lists {
+    max-width: 800px;
+    margin: 50px auto auto;
+  }
 
-.it-lists-non {
-  margin-top: 30px;
-  margin-left: 5px;
-  font-size: 20px;
-  font-weight: 400;
-}
+  .it-lists-non {
+    margin-top: 30px;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 400;
+  }
 
-table {
-  text-align: left;
-  border: 2px solid black !important;
-}
+  table {
+    text-align: left;
+    border: 2px solid black !important;
+  }
 
-th {
-  border-right: 1px solid black !important;
-  width: 15%;
-}
+  th {
+    border-right: 1px solid black !important;
+    width: 15%;
+  }
 
-td {
-  white-space: pre-line;
-}
+  td {
+    white-space: pre-line;
+  }
 
-#video-bg {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -99;
-  object-fit: cover;
-  background: gray;
-}
+  #video-bg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -99;
+    object-fit: cover;
+    background: gray;
+  }
+
+  @media (max-width: 400px) {
+    #video-bg {
+      height: 120%;
+    }
+  }
 </style>
