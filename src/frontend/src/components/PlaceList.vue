@@ -3,7 +3,7 @@
     <div v-for="place in places" :key="place.id">
       <table class="table mt-5" v-if="place.name || place.phenomenon || place.tempMin || place.tempMax">
         <tr>
-          <th>Name</th>
+          <th>Place</th>
           <td>{{ place.name }}</td>
         </tr>
         <tr>

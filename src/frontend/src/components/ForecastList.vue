@@ -2,12 +2,19 @@
   <div class="it-lists">
     <h1>Weather in Estonia</h1>
     <!-- Tab links -->
+    <div class="button-section">
+    <div class="button-switch" v-for="(date, index) in dates" :key="index">
+      <button @click="replaceFlags(index, 1)">{{ date }} Night</button>
+      <button @click="replaceFlags(index, 0)">{{ date }} Day</button>
+    </div>
+    </div>
+
     <div class="it-lists-non" v-if="forecasts.length === 0">
       No forecasts
     </div>
-    <div v-for="forecast in forecasts" :key="forecast.id">
+    <div v-for="(forecast, fIndex) in forecasts" :key="forecast.id">
       
-      <table class="table mt-5">
+      <table class="table mt-5" v-if="fIndex === index && night === 1">
         <tr>
           <th>Period</th>
           <td>{{ forecast.date }} Night</td>
@@ -38,9 +45,10 @@
         </tr>
       </table>
 
-      <PlaceList :places="forecast.night.places" />
+      <PlaceList :places="forecast.night.places" v-if="fIndex === index && night === 1"/>
+      <WindList :winds="forecast.day.winds" v-if="fIndex === index && night === 1"/>
 
-      <table class="table mt-5">
+      <table class="table mt-5" v-if="fIndex === index && night === 0">
         <tr>
           <th>Period</th>
           <td>{{ forecast.date }} Day</td>
@@ -71,7 +79,8 @@
         </tr>
       </table>
 
-      <PlaceList :places="forecast.day.places" />
+      <PlaceList :places="forecast.day.places" v-if="fIndex === index && night === 0"/>
+      <WindList :winds="forecast.day.winds" v-if="fIndex === index && night === 0"/>
       
     </div>
   </div>
@@ -80,6 +89,7 @@
 <script>
 import ForecastService from "../services/ForecastService.js";
 import PlaceList from "@/components/PlaceList";
+import WindList from "@/components/WindList";
 
 export default {
   name: "ForecastList",
@@ -87,6 +97,8 @@ export default {
     return {
       forecasts: [],
       dates: [],
+      index: 0,
+      night: 1,
     };
   },
   methods: {
@@ -100,12 +112,32 @@ export default {
         this.dates = response.data;
       });
     },
+    replaceFlags(index, night) {
+      this.index = index;
+      this.night = night;
+    },
   },
   beforeMount() {
     this.getAllForecasts();
+    this.getDates();
   },
   components: {
-    PlaceList
-  }
+    PlaceList,
+    WindList,
+  },
 };
 </script>
+
+<style scoped>
+    .button-switch {
+      flex-direction: row;
+      margin: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .button-section {
+      margin-top: 3rem;
+    }
+    .button-switch button {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+</style>
