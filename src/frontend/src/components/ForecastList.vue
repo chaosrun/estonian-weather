@@ -140,7 +140,6 @@ export default {
       text-align: center;
       color: white;
       font-weight: bold;
-      -webkit-text-stroke: 1px black;
       font-size: 48px;
     }
     .it-lists {
@@ -150,6 +149,7 @@ export default {
       text-align: center;
       font-size: 1.5em;
       font-weight: bold;
+      color: white;
     }
     button {
       background: white;
@@ -171,13 +171,6 @@ export default {
     .button-switch button {
       margin-left: 0.5rem;
       margin-right: 0.5rem;
-    }
-
-    @media (max-width: 869px) {
-      table {
-        width: 90% !important;
-        margin: auto;
-      }
     }
 
     @media (max-width: 780px) {

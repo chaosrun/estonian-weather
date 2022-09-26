@@ -66,6 +66,13 @@ export default {
     background: gray;
   }
 
+  @media (max-width: 869px) {
+    table {
+      width: 90% !important;
+      margin: auto;
+    }
+  }
+
   @media (max-width: 400px) {
     #video-bg {
       height: 120%;
