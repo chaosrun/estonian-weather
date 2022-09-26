@@ -1,48 +1,81 @@
 <template>
-  <div class="forecasts">
+  <div class="it-lists">
     <h1>Weather in Estonia</h1>
     <!-- Tab links -->
-    <div class="forecasts-non" v-if="forecasts.length === 0">
+    <div class="it-lists-non" v-if="forecasts.length === 0">
       No forecasts
     </div>
-    <table v-for="forecast in forecasts" :key="forecast.date" class="table mt-5">
-      <thead>
-      <tr>
-        <th scope="col">Period</th>
-        <th scope="col">Phenomenon</th>
-        <th scope="col">Temp Min</th>
-        <th scope="col">Temp Max</th>
-        <th scope="col">Text</th>
-        <th scope="col" v-if="forecast.night.sea || forecast.day.sea">Sea</th>
-        <th scope="col" v-if="forecast.night.peipsi || forecast.day.peipsi">Peipsi</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <th scope="row">{{ forecast.date }} Night</th>
-        <td>{{ forecast.night.phenomenon }}</td>
-        <td>{{ forecast.night.tempMin }}</td>
-        <td>{{ forecast.night.tempMax }}</td>
-        <td>{{ forecast.night.text }}</td>
-        <td v-if="forecast.night.sea || forecast.day.sea">{{ forecast.night.sea }}</td>
-        <td v-if="forecast.night.peipsi || forecast.day.peipsi">{{ forecast.night.peipsi }}</td>
-      </tr>
-      <tr>
-        <th scope="row">{{ forecast.date }} Day</th>
-        <td>{{ forecast.day.phenomenon }}</td>
-        <td>{{ forecast.day.tempMin }}</td>
-        <td>{{ forecast.day.tempMax }}</td>
-        <td>{{ forecast.day.text }}</td>
-        <td v-if="forecast.night.sea || forecast.date.sea">{{ forecast.day.sea }}</td>
-        <td v-if="forecast.night.peipsi || forecast.date.peipsi">{{ forecast.day.peipsi }}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div v-for="forecast in forecasts" :key="forecast.id">
+      
+      <table class="table mt-5">
+        <tr>
+          <th>Period</th>
+          <td>{{ forecast.date }} Night</td>
+        </tr>
+        <tr>
+          <th scope="col">Phenomenon</th>
+          <td>{{ forecast.night.phenomenon }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Temp Min</th>
+          <td>{{ forecast.night.tempMin }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Temp Max</th>
+          <td>{{ forecast.night.tempMax }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Text</th>
+          <td>{{ forecast.night.text }}</td>
+        </tr>
+        <tr v-if="forecast.night.sea">
+          <th scope="col">Sea</th>
+          <td>{{ forecast.night.sea }}</td>
+        </tr>
+        <tr v-if="forecast.night.peipsi">
+          <th scope="col" v-if="forecast.night.peipsi">Peipsi</th>
+          <td>{{ forecast.night.peipsi }}</td>
+        </tr>
+      </table>
+
+      <table class="table mt-5">
+        <tr>
+          <th>Period</th>
+          <td>{{ forecast.date }} Day</td>
+        </tr>
+        <tr>
+          <th scope="col">Phenomenon</th>
+          <td>{{ forecast.day.phenomenon }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Temp Min</th>
+          <td>{{ forecast.day.tempMin }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Temp Max</th>
+          <td>{{ forecast.day.tempMax }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Text</th>
+          <td>{{ forecast.day.text }}</td>
+        </tr>
+        <tr v-if="forecast.day.sea">
+          <th scope="col">Sea</th>
+          <td>{{ forecast.day.sea }}</td>
+        </tr>
+        <tr v-if="forecast.day.peipsi">
+          <th scope="col" v-if="forecast.day.peipsi">Peipsi</th>
+          <td>{{ forecast.day.peipsi }}</td>
+        </tr>
+      </table>
+      
+    </div>
   </div>
 </template>
 
 <script>
 import ForecastService from "../services/ForecastService.js";
+// import PlaceList from "@/components/PlaceList";
 
 export default {
   name: "ForecastList",
@@ -65,15 +98,21 @@ export default {
 </script>
 
 <style scoped>
-.forecasts {
+.it-lists {
   max-width: 800px;
   margin: 50px auto auto;
 }
 
-.forecasts-non {
+.it-lists-non {
   margin-top: 30px;
   margin-left: 5px;
   font-size: 20px;
   font-weight: 400;
+}
+
+table {
+  text-align: left;
+  border: 2px solid black;
+  border-radius: 1px;
 }
 </style>
