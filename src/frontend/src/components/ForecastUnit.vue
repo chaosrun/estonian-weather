@@ -24,7 +24,14 @@ export default {
           text: null,
           sea: null,
           peipsi: null,
-          places: [],
+          places: [
+            {
+              name: null,
+              phenomenon: null,
+              tempMin: null,
+              tempMax: null,
+            },
+          ],
           winds: []
         }
       },

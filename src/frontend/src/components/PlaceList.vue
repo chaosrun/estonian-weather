@@ -1,22 +1,22 @@
 <template>
   <div>
     <div v-for="place in places" :key="place.id">
-      <table class="table mt-5" >
+      <table class="table mt-5" v-if="place">
         <tr>
           <th>Name</th>
           <td>{{ place.name }}</td>
         </tr>
         <tr>
           <th>Phenomenon</th>
-          <td>{{ place.night.phenomenon }}</td>
+          <td>{{ place.phenomenon }}</td>
         </tr>
         <tr>
-          <th scope="col" v-if="place.tempMin">Temp Min</th>
-          <td>{{ place.night.tempMin }}</td>
+          <th scope="col" v-if="place.tempMin !== null">Temp Min</th>
+          <td>{{ place.tempMin }}</td>
         </tr>
         <tr>
-          <th scope="col" v-if="place.tempMax">Temp Max</th>
-          <td>{{ place.night.tempMax }}</td>
+          <th scope="col" v-if="place.tempMax !== null">Temp Max</th>
+          <td>{{ place.tempMax }}</td>
         </tr>
       </table>
     </div>
@@ -29,26 +29,15 @@ export default {
   name: "PlaceList",
   data() {
     return {
-      places: [],
     };
   },
   methods: {
   },
-  props: ["places"],
+  props: {
+    places: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
-
-
-<style scoped>
-.it-lists {
-  max-width: 800px;
-  margin: 50px auto auto;
-}
-
-.it-lists-non {
-  margin-top: 30px;
-  margin-left: 5px;
-  font-size: 20px;
-  font-weight: 400;
-}
-</style>

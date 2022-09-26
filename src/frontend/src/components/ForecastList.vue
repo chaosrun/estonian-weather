@@ -38,6 +38,8 @@
         </tr>
       </table>
 
+      <PlaceList :places="forecast.night.places" />
+
       <table class="table mt-5">
         <tr>
           <th>Period</th>
@@ -68,6 +70,8 @@
           <td>{{ forecast.day.peipsi }}</td>
         </tr>
       </table>
+
+      <PlaceList places='{{ forecast.day.places }}' />
       
     </div>
   </div>
@@ -75,13 +79,14 @@
 
 <script>
 import ForecastService from "../services/ForecastService.js";
-// import PlaceList from "@/components/PlaceList";
+import PlaceList from "@/components/PlaceList";
 
 export default {
   name: "ForecastList",
   data() {
     return {
-      forecasts: []
+      forecasts: [],
+      dates: [],
     };
   },
   methods: {
@@ -90,29 +95,17 @@ export default {
         this.forecasts = response.data;
       });
     },
+    getDates() {
+      ForecastService.getForecastDates().then((response) => {
+        this.dates = response.data;
+      });
+    },
   },
   beforeMount() {
     this.getAllForecasts();
   },
+  components: {
+    PlaceList
+  }
 };
 </script>
-
-<style scoped>
-.it-lists {
-  max-width: 800px;
-  margin: 50px auto auto;
-}
-
-.it-lists-non {
-  margin-top: 30px;
-  margin-left: 5px;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-table {
-  text-align: left;
-  border: 2px solid black;
-  border-radius: 1px;
-}
-</style>
