@@ -4,8 +4,8 @@
     <!-- Tab links -->
     <div class="button-section">
     <div class="button-switch" v-for="(date, index) in dates" :key="index">
-      <button @click="replaceFlags(index, 1)">{{ date }} Night</button>
-      <button @click="replaceFlags(index, 0)">{{ date }} Day</button>
+      <button @click="replaceFlags(index, 1)">{{ formatDate(date) }} Night</button>
+      <button @click="replaceFlags(index, 0)">{{ formatDate(date) }} Day</button>
     </div>
     </div>
 
@@ -17,7 +17,7 @@
       <table class="table mt-5" v-if="fIndex === index && night === 1">
         <tr>
           <th>Period</th>
-          <td>{{ forecast.date }} Night</td>
+          <td>{{ formatDate(forecast.date) }} Night</td>
         </tr>
         <tr>
           <th>Phenomenon</th>
@@ -51,7 +51,7 @@
       <table class="table mt-5" v-if="fIndex === index && night === 0">
         <tr>
           <th>Period</th>
-          <td>{{ forecast.date }} Day</td>
+          <td>{{ formatDate(forecast.date) }} Day</td>
         </tr>
         <tr>
           <th>Phenomenon</th>
@@ -87,6 +87,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 import ForecastService from "../services/ForecastService.js";
 import PlaceList from "@/components/PlaceList";
 import WindList from "@/components/WindList";
@@ -115,6 +117,11 @@ export default {
     replaceFlags(index, night) {
       this.index = index;
       this.night = night;
+    },
+    formatDate(value){
+      if (value) {
+        return moment(String(value)).format('DD.MM')
+      }
     },
   },
   beforeMount() {
