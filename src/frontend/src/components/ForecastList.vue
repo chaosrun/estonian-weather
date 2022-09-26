@@ -137,14 +137,29 @@ export default {
 
 <style scoped>
     .button-switch {
-      flex-direction: row;
       margin: 1rem 0.5rem 1rem 0.5rem;
+      display: inline-flex;
+      width: 15%;
     }
     .button-section {
       margin-top: 3rem;
+      line-height: 2rem;
     }
     .button-switch button {
       margin-left: 0.5rem;
       margin-right: 0.5rem;
+    }
+
+    @media (max-width: 869px) {
+      table {
+        width: 90% !important;
+        margin: auto;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .button-switch {
+        width: unset;
+      }
     }
 </style>
