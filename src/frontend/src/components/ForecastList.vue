@@ -5,7 +5,7 @@
     <div class="forecasts-non" v-if="forecasts.length === 0">
       No forecasts
     </div>
-    <table class="table mt-5" v-if="forecasts.length > 0">
+    <table v-for="forecast in forecasts" :key="forecast.date" class="table mt-5">
       <thead>
       <tr>
         <th scope="col">Period</th>
@@ -13,19 +13,19 @@
         <th scope="col">Temp Min</th>
         <th scope="col">Temp Max</th>
         <th scope="col">Text</th>
-        <th scope="col">Sea</th>
-        <th scope="col">Peipsi</th>
+        <th scope="col" v-if="forecast.night.sea || forecast.day.sea">Sea</th>
+        <th scope="col" v-if="forecast.night.peipsi || forecast.day.peipsi">Peipsi</th>
       </tr>
       </thead>
-      <tbody v-for="forecast in forecasts" :key="forecast.date">
+      <tbody>
       <tr>
         <th scope="row">{{ forecast.date }} Night</th>
         <td>{{ forecast.night.phenomenon }}</td>
         <td>{{ forecast.night.tempMin }}</td>
         <td>{{ forecast.night.tempMax }}</td>
         <td>{{ forecast.night.text }}</td>
-        <td>{{ forecast.night.sea }}</td>
-        <td>{{ forecast.night.peipsi }}</td>
+        <td v-if="forecast.night.sea || forecast.day.sea">{{ forecast.night.sea }}</td>
+        <td v-if="forecast.night.peipsi || forecast.day.peipsi">{{ forecast.night.peipsi }}</td>
       </tr>
       <tr>
         <th scope="row">{{ forecast.date }} Day</th>
@@ -33,8 +33,8 @@
         <td>{{ forecast.day.tempMin }}</td>
         <td>{{ forecast.day.tempMax }}</td>
         <td>{{ forecast.day.text }}</td>
-        <td>{{ forecast.day.sea }}</td>
-        <td>{{ forecast.day.peipsi }}</td>
+        <td v-if="forecast.night.sea || forecast.date.sea">{{ forecast.day.sea }}</td>
+        <td v-if="forecast.night.peipsi || forecast.date.peipsi">{{ forecast.day.peipsi }}</td>
       </tr>
       </tbody>
     </table>
