@@ -76,6 +76,7 @@ export default {
   @media (max-width: 400px) {
     #video-bg {
       height: 120%;
+      bottom: -60px;
     }
   }
 </style>
