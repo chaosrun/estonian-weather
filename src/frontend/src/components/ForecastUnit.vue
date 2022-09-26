@@ -32,7 +32,15 @@ export default {
               tempMax: null,
             },
           ],
-          winds: []
+          winds: [
+            {
+              name: null,
+              direction: null,
+              speedMin: null,
+              speedMax: null,
+              gust: null,
+            },
+          ],
         }
       },
       dates: [],

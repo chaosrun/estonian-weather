@@ -9,8 +9,8 @@ class Forecast {
 class ForecastPeriod {
     id: int
     phenomenon: String
-    tempMin: int
-    tempMax: int
+    tempMin: Integer
+    tempMax: Integer
     text: String
     sea: String
     peipsi: String
@@ -20,17 +20,17 @@ class Place {
     id: int
     name: String
     phenomenon: String
-    tempMin: int
-    tempMax: int
+    tempMin: Integer
+    tempMax: Integer
 }
 
 class Wind {
     id: int
     name: String
     direction: String
-    speedMin: int
-    speedMax: int
-    gust: int
+    speedMin: Integer
+    speedMax: Integer
+    gust: Integer
 }
 
 Forecast "1" - "1" ForecastPeriod : night >

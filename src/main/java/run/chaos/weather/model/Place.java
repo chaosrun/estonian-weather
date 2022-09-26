@@ -2,7 +2,6 @@ package run.chaos.weather.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "place")
@@ -22,10 +21,10 @@ public class Place {
     private String phenomenon;
 
     @Column(name = "temp_min")
-    private int tempMin;
+    private Integer tempMin;
 
     @Column(name = "temp_max")
-    private int tempMax;
+    private Integer tempMax;
 
     public int getId() {
         return id;
@@ -51,19 +50,19 @@ public class Place {
         this.phenomenon = phenomenon;
     }
 
-    public int getTempMin() {
+    public Integer getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(int tempMin) {
+    public void setTempMin(Integer tempMin) {
         this.tempMin = tempMin;
     }
 
-    public int getTempMax() {
+    public Integer getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(int tempMax) {
+    public void setTempMax(Integer tempMax) {
         this.tempMax = tempMax;
     }
 

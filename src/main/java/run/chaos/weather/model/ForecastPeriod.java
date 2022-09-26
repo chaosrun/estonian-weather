@@ -20,11 +20,11 @@ public class ForecastPeriod {
 
     @NotNull
     @Column(name = "temp_min")
-    private int tempMin;
+    private Integer tempMin;
 
     @NotNull
     @Column(name = "temp_max")
-    private int tempMax;
+    private Integer tempMax;
 
     @NotBlank
     @Column(name = "text")
@@ -60,19 +60,19 @@ public class ForecastPeriod {
         this.phenomenon = phenomenon;
     }
 
-    public int getTempMin() {
+    public Integer getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(int tempMin) {
+    public void setTempMin(Integer tempMin) {
         this.tempMin = tempMin;
     }
 
-    public int getTempMax() {
+    public Integer getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(int tempMax) {
+    public void setTempMax(Integer tempMax) {
         this.tempMax = tempMax;
     }
 

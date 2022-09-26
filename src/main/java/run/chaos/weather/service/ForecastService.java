@@ -127,11 +127,11 @@ public class ForecastService {
             place.setName(eRoot.getElementsByTagName("name").item(0).getTextContent());
             place.setPhenomenon(eRoot.getElementsByTagName("phenomenon").item(0).getTextContent());
             Node tempMin = eRoot.getElementsByTagName("tempmin").item(0);
-            if (tempMin != null) {
-                place.setTempMin(Integer.parseInt(tempMin.getTextContent()));
+            if (tempMin != null && !tempMin.getTextContent().trim().isBlank()) {
+                place.setTempMin(Integer.parseInt(tempMin.getTextContent().trim()));
             }
             Node tempMax = eRoot.getElementsByTagName("tempmax").item(0);
-            if (tempMax != null) {
+            if (tempMax != null && !tempMax.getTextContent().trim().isBlank()) {
                 place.setTempMax(Integer.parseInt(tempMax.getTextContent()));
             }
             places.add(place);
@@ -149,8 +149,8 @@ public class ForecastService {
             wind.setSpeedMin(Integer.parseInt(eRoot.getElementsByTagName("speedmin").item(0).getTextContent()));
             wind.setSpeedMax(Integer.parseInt(eRoot.getElementsByTagName("speedmax").item(0).getTextContent()));
             Node gust = eRoot.getElementsByTagName("gust").item(0);
-            if (gust != null && !gust.getTextContent().isBlank()) {
-                wind.setGust(Integer.parseInt(gust.getTextContent()));
+            if (gust != null && !gust.getTextContent().trim().isBlank()) {
+                wind.setGust(Integer.parseInt(gust.getTextContent().trim()));
             }
             winds.add(wind);
         }

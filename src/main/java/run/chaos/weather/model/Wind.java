@@ -23,14 +23,14 @@ public class Wind {
 
     @NotNull
     @Column(name = "speed_min")
-    private int speedMin;
+    private Integer speedMin;
 
     @NotNull
     @Column(name = "speed_max")
-    private int speedMax;
+    private Integer speedMax;
 
     @Column(name = "gust")
-    private int gust;
+    private Integer gust;
 
     public int getId() {
         return id;
@@ -56,23 +56,23 @@ public class Wind {
         this.direction = direction;
     }
 
-    public int getSpeedMin() {
+    public Integer getSpeedMin() {
         return speedMin;
     }
 
-    public void setSpeedMin(int speedMin) {
+    public void setSpeedMin(Integer speedMin) {
         this.speedMin = speedMin;
     }
 
-    public int getSpeedMax() {
+    public Integer getSpeedMax() {
         return speedMax;
     }
 
-    public void setSpeedMax(int speedMax) {
+    public void setSpeedMax(Integer speedMax) {
         this.speedMax = speedMax;
     }
 
-    public int getGust() {
+    public Integer getGust() {
         return gust;
     }
 
