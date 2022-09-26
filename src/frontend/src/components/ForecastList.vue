@@ -136,10 +136,33 @@ export default {
 </script>
 
 <style scoped>
+    h1 {
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      -webkit-text-stroke: 1px black;
+      font-size: 48px;
+    }
+    .it-lists {
+      color: black;
+    }
+    .it-lists-non {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    button {
+      background: white;
+      border: 2px solid black;
+    }
+    button:hover {
+      background: black;
+      color: white;
+    }
     .button-switch {
-      margin: 1rem 0.5rem 1rem 0.5rem;
+      margin: 1rem 0 1rem 0;
       display: inline-flex;
-      width: 15%;
+      width: 20%;
     }
     .button-section {
       margin-top: 3rem;
@@ -160,6 +183,12 @@ export default {
     @media (max-width: 780px) {
       .button-switch {
         width: unset;
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 32px;
       }
     }
 </style>
