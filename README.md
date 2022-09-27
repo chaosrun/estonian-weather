@@ -4,7 +4,7 @@
 
 This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data. The backend can provide API for the weather data in JSON format, please see the [API endpoints](#endpoints) section. The frontend design is responsive and works on mobile devices.
 
-![Demo screenshot](docs/screenshot.png)
+[![Demo screenshot](docs/screenshot.png)](https://weather.chaos.run)
 
 ## Installation
 
