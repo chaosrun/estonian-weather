@@ -40,7 +40,7 @@ export default {
     border-collapse: collapse;
     border-style:hidden;
     box-shadow: 0 0 0 2px #b0b0b0;
-    background-color: rgba(0, 0, 0, 0.85) !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
     color: #d2d2d2 !important;
   }
 
