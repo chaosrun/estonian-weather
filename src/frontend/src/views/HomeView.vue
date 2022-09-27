@@ -1,6 +1,8 @@
 <template>
   <div class="home">
+    <div id="stotop-top"></div>
     <ForecastList />
+    <a id="stotop" href="#stotop-top"><span></span></a>
     <div id="container">
       <video id="video-bg" poster="@/assets/image/bg.jpg" preload="auto" autoplay loop muted>
         <source src="https://download.chaos.run/weather/assets/video/bg.mp4" type="video/mp4">
