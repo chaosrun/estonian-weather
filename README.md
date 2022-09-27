@@ -2,13 +2,13 @@
 
 [![Build](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml/badge.svg)](https://github.com/chaosrun/estonian-weather/actions/workflows/build.yml) [![Demo web](https://img.shields.io/badge/Demo-web-blue)](https://weather.chaos.run) [![Demo API](https://img.shields.io/badge/Demo-API-brightgreen)](https://weather.chaos.run/api/forecast)
 
-This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data.
+This is a weather forecast web app for Estonia. It uses the [Estonian Environment Agency XML Service](https://www.ilmateenistus.ee/ilma_andmed/xml/forecast.php?lang=eng) to fetch the weather data. The backend can provide API for the weather data in JSON format, please see the [API endpoints](#endpoints) section. The frontend design is responsive and works on mobile devices.
+
+![Demo screenshot](docs/screenshot.png)
 
 ## Installation
 
-### Using Docker
-
-First, clone the repository:
+The app can be deployed using Docker. First, clone the repository:
 
 ```bash
 git clone https://github.com/chaosrun/estonian-weather.git

@@ -2,7 +2,7 @@
   <div class="home">
     <ForecastList />
     <div id="container">
-      <video id="video-bg" preload="auto" autoplay loop muted>
+      <video id="video-bg" poster="@/assets/image/bg.jpg" preload="auto" autoplay loop muted>
         <source src="https://download.chaos.run/weather/assets/video/bg.mp4" type="video/mp4">
       </video>
     </div>
@@ -63,7 +63,7 @@ export default {
     min-height: 100%;
     z-index: -99;
     object-fit: cover;
-    background: gray;
+    background: #919191;
   }
 
   @media (max-width: 869px) {
