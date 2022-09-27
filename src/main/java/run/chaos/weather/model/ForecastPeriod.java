@@ -30,7 +30,7 @@ public class ForecastPeriod {
     @Column(name = "text")
     private String text;
 
-    @Column(name = "sea", length = 1024)
+    @Column(name = "sea", length = 4096)
     private String sea;
 
     @Column(name = "peipsi")

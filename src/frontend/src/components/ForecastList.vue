@@ -83,6 +83,18 @@
       <WindList :winds="forecast.day.winds" v-if="fIndex === index && night === 0"/>
       
     </div>
+
+    <table class="table mt-5 footer">
+      <tr>
+        <th>Source Code</th>
+        <td><a href="https://github.com/chaosrun/estonian-weather" target="_blank">GitHub</a></td>
+      </tr>
+      <tr>
+        <th>Copyright</th>
+        <td>{{new Date().getFullYear()}}<a href="https://chaos.run" target="_blank" style="text-decoration: none">Chaos</a></td>
+      </tr>
+    </table>
+
   </div>
 </template>
 
@@ -137,40 +149,72 @@ export default {
 
 <style scoped>
     h1 {
+      font-family: "Roboto", serif;
       text-align: center;
       color: white;
       font-weight: bold;
       font-size: 48px;
     }
+
     .it-lists {
       color: black;
+      max-width: 800px;
+      margin: 50px auto auto;
     }
+
     .it-lists-non {
       text-align: center;
       font-size: 1.5em;
       font-weight: bold;
       color: white;
+      margin-top: 30px;
+      margin-left: 5px;
     }
+
     button {
-      background: white;
-      border: 2px solid black;
+      font-family: "Roboto", serif;
+      border: 1px solid white;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #eaeaea;
     }
+
     button:hover {
-      background: black;
-      color: white;
+      background: rgba(255, 255, 255, 0.9);
+      color: black;
     }
+
     .button-switch {
       margin: 1rem 0 1rem 0;
       display: inline-flex;
       width: 20%;
     }
+
     .button-section {
       margin-top: 3rem;
       line-height: 2rem;
     }
+
     .button-switch button {
       margin-left: 0.5rem;
       margin-right: 0.5rem;
+    }
+
+    .footer {
+      margin: 60px auto 80px !important;
+      width: 40%;
+    }
+
+    .footer th {
+      width: 40%;
+    }
+
+    .footer td {
+      text-align: center;
+    }
+
+    .footer a {
+      color: #d2d2d2;
     }
 
     @media (max-width: 780px) {
