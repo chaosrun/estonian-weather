@@ -10,7 +10,7 @@
     </div>
 
     <div class="it-lists-non" v-if="forecasts.length === 0">
-      No forecasts
+      Loading...
     </div>
     <div v-for="(forecast, fIndex) in forecasts" :key="forecast.id">
       
