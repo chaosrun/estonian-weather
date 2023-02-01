@@ -1,8 +1,13 @@
 package run.chaos.weather.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "place")
 public class Place {
@@ -17,7 +22,7 @@ public class Place {
     private String name;
 
     @NotBlank
-    @Column(name = "phenomenon")
+    @Column(name = "phenomenon", length = 4096)
     private String phenomenon;
 
     @Column(name = "temp_min")
@@ -25,45 +30,4 @@ public class Place {
 
     @Column(name = "temp_max")
     private Integer tempMax;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhenomenon() {
-        return phenomenon;
-    }
-
-    public void setPhenomenon(String phenomenon) {
-        this.phenomenon = phenomenon;
-    }
-
-    public Integer getTempMin() {
-        return tempMin;
-    }
-
-    public void setTempMin(Integer tempMin) {
-        this.tempMin = tempMin;
-    }
-
-    public Integer getTempMax() {
-        return tempMax;
-    }
-
-    public void setTempMax(Integer tempMax) {
-        this.tempMax = tempMax;
-    }
-
 }

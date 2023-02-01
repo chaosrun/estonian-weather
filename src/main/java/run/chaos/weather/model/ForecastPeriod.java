@@ -1,10 +1,15 @@
 package run.chaos.weather.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "forecast_period")
 public class ForecastPeriod {
@@ -15,7 +20,7 @@ public class ForecastPeriod {
     private int id;
 
     @NotBlank
-    @Column(name = "phenomenon")
+    @Column(name = "phenomenon", length = 4096)
     private String phenomenon;
 
     @NotNull
@@ -27,13 +32,13 @@ public class ForecastPeriod {
     private Integer tempMax;
 
     @NotBlank
-    @Column(name = "text")
+    @Column(name = "text", length = 4096)
     private String text;
 
     @Column(name = "sea", length = 4096)
     private String sea;
 
-    @Column(name = "peipsi")
+    @Column(name = "peipsi", length = 4096)
     private String peipsi;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -43,77 +48,4 @@ public class ForecastPeriod {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "forecast_period_id")
     private List<Wind> winds;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getPhenomenon() {
-        return phenomenon;
-    }
-
-    public void setPhenomenon(String phenomenon) {
-        this.phenomenon = phenomenon;
-    }
-
-    public Integer getTempMin() {
-        return tempMin;
-    }
-
-    public void setTempMin(Integer tempMin) {
-        this.tempMin = tempMin;
-    }
-
-    public Integer getTempMax() {
-        return tempMax;
-    }
-
-    public void setTempMax(Integer tempMax) {
-        this.tempMax = tempMax;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getSea() {
-        return sea;
-    }
-
-    public void setSea(String sea) {
-        this.sea = sea;
-    }
-
-    public String getPeipsi() {
-        return peipsi;
-    }
-
-    public void setPeipsi(String peipsi) {
-        this.peipsi = peipsi;
-    }
-
-    public List<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<Place> places) {
-        this.places = places;
-    }
-
-    public List<Wind> getWinds() {
-        return winds;
-    }
-
-    public void setWinds(List<Wind> winds) {
-        this.winds = winds;
-    }
-
 }

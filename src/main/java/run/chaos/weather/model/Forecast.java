@@ -1,12 +1,16 @@
 package run.chaos.weather.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Date;
-import javax.validation.constraints.NotNull;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "forecast")
 public class Forecast {
@@ -32,45 +36,4 @@ public class Forecast {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "forecast_day_id", referencedColumnName = "forecast_period_id")
     private ForecastPeriod day;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public ForecastPeriod getNight() {
-        return night;
-    }
-
-    public void setNight(ForecastPeriod night) {
-        this.night = night;
-    }
-
-    public ForecastPeriod getDay() {
-        return day;
-    }
-
-    public void setDay(ForecastPeriod day) {
-        this.day = day;
-    }
-
 }
